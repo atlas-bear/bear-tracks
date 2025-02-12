@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bear Tracks
+
+A lightweight, privacy-focused web analytics solution designed for Atlas|Bear's applications. Track essential visitor metrics while maintaining strong security and privacy standards.
+
+## Features
+
+- Privacy-first analytics collection
+- Page view tracking
+- Visitor information tracking:
+  - Country
+  - Device type
+  - Referrer source
+- Visit duration monitoring
+- Analytics dashboard with:
+  - Total visits and trends
+  - Page popularity metrics
+  - Geographic distribution
+  - Traffic source analysis
+  - Time-based analytics
+
+## Tech Stack
+
+- **Frontend**:
+
+  - Next.js 14+
+  - React 19
+  - TypeScript
+  - Tailwind CSS
+  - Recharts for data visualization
+  - shadcn/ui components
+
+- **Backend**:
+
+  - Next.js API routes
+  - Edge functions for tracking
+  - Supabase for database
+
+- **Infrastructure**:
+  - Netlify for hosting and edge functions
+  - Supabase project for data storage
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 22.x or later
+- npm
+- Supabase account
+- Netlify account
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/atlas-bear/bear-tracks.git
+cd bear-tracks
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create a `.env.local` file:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+4. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development Guidelines
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Code Style
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Use TypeScript for type safety
+- Follow React best practices
+- Implement proper error handling
+- Maintain comprehensive documentation
 
-## Learn More
+### Security Considerations
 
-To learn more about Next.js, take a look at the following resources:
+- Minimize data collection to essential metrics
+- Implement proper access controls
+- Follow privacy-by-design principles
+- Regular security audits
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Please read our contributing guidelines before submitting pull requests.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the LICENSE file for details.
