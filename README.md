@@ -1,4 +1,4 @@
-![Bear Tracks Logo](https://drive.google.com/file/d/1A8DzbgAzQXaH1cEngg66pXehyicYqhrT/view?usp=sharing)
+![Bear Tracks Logo](https://drive.google.com/file/d/1XnK4y14xlKNwUPiexkMkn6B4tsAYp59B/view?usp=sharing)
 
 # Bear Tracks
 
