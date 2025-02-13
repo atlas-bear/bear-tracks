@@ -1,4 +1,4 @@
-# Bear Tracks
+# 🐾 Bear Tracks
 
 A lightweight, privacy-focused web analytics solution designed for Atlas|Bear's applications. Track essential visitor metrics while maintaining strong security and privacy standards.
 
