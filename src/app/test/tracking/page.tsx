@@ -1,16 +1,17 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function TrackingTestPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const [doNotTrack, setDoNotTrack] = useState<string | null>(null);
 
   useEffect(() => {
-    // Check if tracking script has set a session ID
-    const sid = localStorage.getItem('bear_tracks_sid');
-    setSessionId(sid);
+    // Check for session ID and Do Not Track status on client side
+    setSessionId(localStorage.getItem('bear_tracks_sid'));
+    setDoNotTrack(navigator.doNotTrack);
   }, []);
 
   return (
@@ -46,7 +47,7 @@ export default function TrackingTestPage() {
             <div>
               <h3 className="font-semibold">Privacy Status:</h3>
               <div className="mt-2">
-                Do Not Track enabled: {navigator.doNotTrack === '1' ? 'Yes' : 'No'}
+                Do Not Track enabled: {doNotTrack === '1' ? 'Yes' : 'No'}
               </div>
             </div>
           </div>
