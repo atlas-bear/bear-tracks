@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Activity, Users, MousePointerClick, Clock } from 'lucide-react';
+import { Activity, Users, Clock } from 'lucide-react';
 import { supabase } from '@/lib/supabase/client';
 import { ActivePages } from '@/components/dashboard/realtime/active-pages';
 import { LiveVisitors } from '@/components/dashboard/realtime/live-visitors';

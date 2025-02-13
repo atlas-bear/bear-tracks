@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { Card } from '@/components/ui/card';
 import { getDailyVisits } from '@/lib/supabase/analytics';
 import { Button } from '@/components/ui/button';
 
