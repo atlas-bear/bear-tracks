@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
-import { PawPrint, LayoutDashboard, Activity, Globe, Clock, Users } from 'lucide-react';
+import Image from 'next/image';
+import { LayoutDashboard, Activity, Globe, Clock, Users } from 'lucide-react';
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -12,7 +13,13 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       {/* Sidebar */}
       <div className="fixed inset-y-0 left-0 w-64 bg-white border-r border-gray-200">
         <div className="flex items-center gap-2 p-6">
-          <PawPrint className="h-8 w-8" />
+          <Image 
+            src="/images/logo.png" 
+            alt="Bear Tracks Logo" 
+            width={32} 
+            height={32} 
+            priority
+          />
           <span className="text-xl font-semibold">Bear Tracks</span>
         </div>
         

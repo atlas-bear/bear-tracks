@@ -45,3 +45,6 @@ next-env.d.ts
 /netlify/tmp
 # Local Netlify folder
 .netlify
+
+# claude code /init file 
+CLAUDE.md
