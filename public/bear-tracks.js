@@ -2,7 +2,11 @@
   // Don't track if Do Not Track is enabled
   if (navigator.doNotTrack === "1") return;
 
-  const ENDPOINT = "/api/track";
+  // Get the script URL to determine tracking endpoint
+  const scriptSrc = document.currentScript.src;
+  const origin = new URL(scriptSrc).origin;
+  const ENDPOINT = `${origin}/api/track`;
+
   let sessionId = localStorage.getItem("bear_tracks_sid");
 
   async function track() {
@@ -17,6 +21,7 @@
           pageUrl: window.location.pathname,
           referrer: document.referrer,
         }),
+        mode: "cors",
       });
 
       const data = await response.json();

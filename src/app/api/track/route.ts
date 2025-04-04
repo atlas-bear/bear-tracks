@@ -8,6 +8,20 @@ function getDeviceType(userAgent: string): string {
   return 'desktop';
 }
 
+// Add CORS headers helper
+function corsHeaders() {
+  return {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+  };
+}
+
+// Handle OPTIONS request for CORS preflight
+export async function OPTIONS() {
+  return NextResponse.json({}, { headers: corsHeaders() });
+}
+
 export async function POST(request: Request) {
   try {
     const { sessionId, pageUrl, referrer } = await request.json();
@@ -21,7 +35,10 @@ export async function POST(request: Request) {
     if (!sessionId) {
       const newSession = await createSession(crypto.randomUUID());
       if (!newSession) {
-        return NextResponse.json({ error: 'Failed to create session' }, { status: 500 });
+        return NextResponse.json({ error: 'Failed to create session' }, { 
+          status: 500,
+          headers: corsHeaders()
+        });
       }
       
       await recordPageView({
@@ -33,7 +50,9 @@ export async function POST(request: Request) {
         device_type: deviceType,
       });
 
-      return NextResponse.json({ sessionId: newSession.id });
+      return NextResponse.json({ sessionId: newSession.id }, { 
+        headers: corsHeaders()
+      });
     }
 
     // Update existing session
@@ -47,9 +66,14 @@ export async function POST(request: Request) {
       device_type: deviceType,
     });
 
-    return NextResponse.json({ sessionId });
+    return NextResponse.json({ sessionId }, { 
+      headers: corsHeaders()
+    });
   } catch (error) {
     console.error('Tracking error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json({ error: 'Internal server error' }, { 
+      status: 500,
+      headers: corsHeaders()
+    });
   }
 }
