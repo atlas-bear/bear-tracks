@@ -12,10 +12,6 @@ NEXT_TELEMETRY_DISABLED = "1"
 [[plugins]]
 package = "@netlify/plugin-nextjs"
 
-# Enable Netlify Image CDN
-[[plugins]]
-package = "netlify-plugin-image-optim"
-
 # Rewrite rules for SPA and API routes
 [[redirects]]
 from = "/*"
@@ -37,13 +33,6 @@ to = "/.netlify/functions/:splat"
 status = 200
 force = true
 conditions = { Path = "/.netlify/functions/*" }
-
-# Image optimization path
-[[redirects]]
-from = "/.netlify/images/*"
-to = "/.netlify/image"
-status = 200
-force = true
 
 [[redirects]]
 from = "/*"
